@@ -1,0 +1,110 @@
+# Week 1: Discovering a Robot Through ROS 2
+
+## Student
+
+- Name: Shernice Chetty
+- Email: SHERNICE.CHETTY71@stu-mail.hunter.cuny.edu
+
+## final.architecture_evidence
+
+My node is reactive ecause it takes an immediate sensor input (LiDAR ranges) and maps it directly to an actuator output (velocity) without storing any past data or state. To make it hybrid, I would need to add a deliberative layer, like a mapping or path-planning algorithm that runs in the background to figure out how to navigate a maze while the reactive layer just stops it from hitting the walls.
+
+## final.course_reflection
+
+Going through this ROS 2 lab really connected the dots between my computer science coursework  and the physical realities of hardware. I do spend a lot of time thinking about AI, algorithms, and software design, but seeing code directly actuate physical movement introduces a whole new layer of strict safety requirements. Building a interactive web app or practice data structures is one part, but it’s completely different when a bug means a physical collision.
+
+This activity definitely increased my motivation to explore the intersection of software and robotics. I have taken a great interest in Robotics. The publisher/subscriber model in ROS 2 is an elegant way to handle messy, asynchronous real-world data, and I enjoyed figuring out how to make the nodes talk to each other safely.
+
+What stood out to me most was the ethical necessity of the "default to stop" behavior. It showed the immense responsibility we have as "soon to be" engineers. In standard software, an unhandled exception might cause a bad user experience but i noticed in robotics, it can cause physical harm. Designing the command guard and handling NaN readings reinforced the idea that safety and human well-being must always be prioritized over simply completing a task. It makes the engineering work feel much more grounded and consequential. And fun!
+
+## final.hardware_next
+
+I would test simulated edge cases, like dropping sensor messages on purpose to see if my watchdog timer kicks in fast enough, or approaching obstacles at weird angles to make sure the robot stops before risking any damage to a real physical bot.
+
+## final.middleware_debugging
+
+Using a tool like rqt_graph gives a visual map of all the active nodes and topics. If a command isn't reaching the wheels, I could just look at the graph to see if a connection is broken. For example, if my decision node accidentally published to the wrong topic name or the command guard dropped its subscription.
+
+## final.system_synthesis
+
+Robotics software is incredibly challenging because it forces us to deal with the messy, unpredictable physical world in real-time. Unlike standard software development where a bug or an unhandled exception might just throw an error or crash a web page, failures in robotics have physical consequences.If my robot's decision logic fails, it literally crashes into a wall. In this lab, I implemented a purely reactive architecture based on the Sense-Act paradigm. The main trade-off here is that while the robot can react to obstacles instantly, which is perfect for an immediate safety guard, it has zero memory, state or long-term planning capabilites. It cannot plan a route to a goal, remember where it just was, or navigate its way out of a complex dead-end.
+
+To manage this complexity, the ROS 2 middleware acted as the communication backbone, linking four main components through a publisher and subscriber model spanning at least three distinct communication relationships.First, the simulated LiDAR sensor published raw distance measurements to the /scan topic. Second, my custom decision node subscribed to /scan, processed that raw data to find the minimum distance, and published a target velocity to a new topic called /student_cmd_vel. Third, the provided command guard node subscribed to /student_cmd_vel to evaluate my node's output. Finally, the guard published the final, verified safe speed to the /cmd_vel topic, which the actual robot base subscribed to for physical movement.
+
+I had a huge lesson in safety when it came to handling the invalid sensor data. I noticed that if the LiDAR gets too close to an object, or if the sensor is blocked, it outputs NaN or infinite values instead of a tiny number. If the robot treats missing or invalid data as a "clear path," it will collide. By forcing my decision function to return a dead-stop command whenever the data was missing or invalid, I prevented that failure state. Also, the command guard acted as the safety layer. It functioned as a strict watchdog like timer, meaning if my decision node crashed, or the sensor timing lagged and stopped sending messages entirely, the guard would automatically halt the robot to restrict any unsafe, runaway motion.
+
+## final.timing_evidence
+
+Seeing the LiDAR return  inf when an object was practically touching it really changed my perspective. It made me realize that a lack of valid data is a red flag, and the system must default to a hard stop rather than assuming the coast is clear.
+
+## mission_1.command_path_explanation
+
+A proposed command travels on the /student_cmd_vel topic. The guard receives this command and checks it to make sure the movement is safe. Then it publishes the approved command t the /cmd_vel topic so the simulated robot can actually execute the movement.
+
+## mission_1.graph_explanation
+
+A ROS 2 graph shows how different programs in a robot's software system connect and communicate with one another using named data channels. For example in this mission, the /ros_gz_bridge node sends data to the /scan topic
+
+## mission_1.guided_checks
+
+{'bridge_info': True, 'command_topics': True, 'guard_info': True, 'node_list': True, 'scan_info': True, 'scan_message': True}
+
+## mission_1.scan_observation
+
+I found the ranges list containing mostly .inf values which represent the physical distance measurement in meters  around the robot, with .inf representing that no object was detected within the sensor max range.
+
+
+
+## mission_1.tools_explanation
+
+Gazebo is responsible for simulating the physical environment, the robots movement and its raw sensor readings while RViz is responsible for visually displaying that ROS 2 data so a person can easily see and understand it
+
+## mission_2.measurement_explanation
+
+The estimated traveled path measures the total distance the robot actually drove along the curved arc. The start to end distance measures the length of a direct, straight line from the starting position to the final position, which is always shorter than the curve.
+
+## mission_2.modified_settings
+
+{'linear_x': 0.12, 'angular_z': 0.6, 'duration': 4.0}
+
+## mission_2.motion_comparison
+
+For the straight motion trial, the measured motion closely matched my prediction. The estimated traveled path was approximately 0.45 meters, and the direction change was nearly 0 degrees, which aligns with my calculated prediction.
+
+## mission_2.prediction_locks
+
+{'straight': '2026-09-08T01:04:30.624829+00:00', 'rotation': '2026-09-08T01:06:58.130257+00:00', 'curve': '2026-09-08T01:10:34.025397+00:00', 'curve_modified': '2026-09-08T01:12:34.026625+00:00'}
+
+## mission_2.predictions
+
+{'straight': 'travel straight forward for exactly 0.45 meters without turning, since the turning speed is 0', 'rotation': 'remain unchanged since the forward speed is 0.00 m/s, while its direction will turn to the left by exactly 1.5 radians', 'curve': 'right-hand curve that travels 0.60 meters along its arc and turns right by 1.6 radians because it combines a positive forward speed with a negative turning speed', 'curve_modified': 'the turning speed is a positive value instead of negative and the resulting radius of 0.20 m is smaller'}
+
+## mission_2.safety_explanation
+
+The command guard checks every proposed driving command to ensure speeds are safe and valid before they reach the robot
+The final zero command safely stops the robot at the planned end of a trial by sending a zero forward and turning speed.
+The timeout is needed if the program crashes or communication stops, providing a backup mechanism to halt the robot after 0.5 seconds without a new command.
+
+## mission_3.data_to_command
+
+front_distance() iterates through the raw LiDAR array, filters out invalid readings and those outside the front angle boundary, and returns the single min distance. decide_velocity() then evaluates this nearest distance, returning 0.0 which is stop if it is below the safety threshold or missing and returning the bounded forward speed if the path is clear
+
+## mission_3.missing_data_safety
+
+Stopping is a critical fail-safe behaviour. A lack of valid measurements does not guarantee empty space. It could mean the sensor is blocked, failing or that an obstacle is so close that the LiDAR cannot accurately read through it. 
+
+## mission_3.system_layers
+
+The suppled ROS node subscribes to raw data from /scan, passes it to the decision functions to calculate a safe velocity and publishes that choice to /student_cmd_vel. The command guard then acts as a safety layer by safely forwarding this command to the actual /cmd_vel topic, while also using like. awatchdog to stop the robot completely if the node crashes or if sensor data stops arriving.
+
+## part_1.activity
+
+{'sensor': {'normal': True, 'changed': True}, 'timing': {'normal': True, 'changed': True}, 'hardware': {'normal': True, 'changed': True}}
+
+## part_2.activity
+
+{'reactive': {'normal': True, 'changed': True}, 'behavior': {'normal': True, 'changed': True}, 'deliberative': {'normal': True, 'changed': True}, 'hybrid': {'normal': True, 'changed': True}, 'safety': {'normal': True, 'changed': True}}
+
+## part_3.activity
+
+{'middleware': {'single': True, 'multiple': True}, 'communication': {'topic': True, 'service': True}, 'failure': {'healthy': True, 'sensor': True, 'type': True, 'visualization': True}, 'inspection': {'nodes': True, 'node_info': True, 'topics': True, 'topic_info': True, 'echo': True, 'services': True, 'broken': True}}

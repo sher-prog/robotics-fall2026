@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "lab_id": "week01_ros_foundations",
+  "mission_id": "mission_2",
+  "saved_at": "2026-09-08T01:15:54.742923+00:00",
+  "evidence": {
+    "evidence_id": "eef0825824d0f4bc",
+    "trials": [
+      {
+        "trial_type": "straight",
+        "captured_at": "2026-09-08T01:04:39.093249+00:00",
+        "linear_x": 0.15,
+        "angular_z": 0.0,
+        "duration": 3.0,
+        "command_started_at": "2026-09-08T01:04:35.542930+00:00",
+        "zero_command_sent_at": "2026-09-08T01:04:38.543743+00:00",
+        "actual_command_duration": 3.000812209007563,
+        "duration_error": 0.0008122090075630695,
+        "commanded_path_length": 0.44999999999999996,
+        "expected_linear_travel": 0.44999999999999996,
+        "observed_path_length": 0.3938249999997413,
+        "start_pose": {
+          "x": 9.600779719266987e-09,
+          "y": -2.2140242915070817e-21,
+          "theta": -4.546043928486789e-13
+        },
+        "end_pose": {
+          "x": 0.393825009600521,
+          "y": 1.2274573602735266e-12,
+          "theta": -1.158795291051494e-13
+        },
+        "displacement": 0.3938249999997413,
+        "heading_change": 3.387248637435295e-13,
+        "completed": true,
+        "stop_sent": true
+      },
+      {
+        "trial_type": "rotation",
+        "captured_at": "2026-09-08T01:07:08.496975+00:00",
+        "linear_x": 0.0,
+        "angular_z": 0.5,
+        "duration": 3.0,
+        "command_started_at": "2026-09-08T01:07:04.944861+00:00",
+        "zero_command_sent_at": "2026-09-08T01:07:07.947893+00:00",
+        "actual_command_duration": 3.002917792997323,
+        "duration_error": 0.0029177929973229766,
+        "commanded_path_length": 0.0,
+        "expected_linear_travel": 0.0,
+        "observed_path_length": 4.0201132474153084e-05,
+        "start_pose": {
+          "x": 0.3938250095999712,
+          "y": 1.2274573602746715e-12,
+          "theta": -4.899206041763597e-12
+        },
+        "end_pose": {
+          "x": 0.39382953825013783,
+          "y": -1.2264099518624486e-05,
+          "theta": 0.664955442218977
+        },
+        "displacement": 1.3073516720527482e-05,
+        "heading_change": 0.6649554422238761,
+        "completed": true,
+        "stop_sent": true
+      },
+      {
+        "trial_type": "curve",
+        "captured_at": "2026-09-08T01:10:46.700462+00:00",
+        "linear_x": 0.15,
+        "angular_z": -0.4,
+        "duration": 4.0,
+        "command_started_at": "2026-09-08T01:10:42.099598+00:00",
+        "zero_command_sent_at": "2026-09-08T01:10:46.149563+00:00",
+        "actual_command_duration": 4.050099626998417,
+        "duration_error": 0.05009962699841708,
+        "commanded_path_length": 0.6,
+        "expected_linear_travel": 0.6,
+        "observed_path_length": 0.4887166156348719,
+        "start_pose": {
+          "x": 0.3938295382497472,
+          "y": -1.2264099724863763e-05,
+          "theta": 0.6649554422159828
+        },
+        "end_pose": {
+          "x": 0.8486049514522308,
+          "y": -0.006833194343532708,
+          "theta": -0.6680029841590613
+        },
+        "displacement": 0.45482656204632615,
+        "heading_change": -1.3329584263750442,
+        "completed": true,
+        "stop_sent": true
+      },
+      {
+        "trial_type": "curve_modified",
+        "captured_at": "2026-09-08T01:12:52.326245+00:00",
+        "linear_x": 0.12,
+        "angular_z": 0.6,
+        "duration": 4.0,
+        "command_started_at": "2026-09-08T01:12:47.825735+00:00",
+        "zero_command_sent_at": "2026-09-08T01:12:51.826027+00:00",
+        "actual_command_duration": 4.0002382100210525,
+        "duration_error": 0.00023821002105250955,
+        "commanded_path_length": 0.48,
+        "expected_linear_travel": 0.48,
+        "observed_path_length": 0.357560916391202,
+        "start_pose": {
+          "x": 0.8486049514521383,
+          "y": -0.0068331943432042505,
+          "theta": -0.6680029841558581
+        },
+        "end_pose": {
+          "x": 1.1498043801162952,
+          "y": 0.07280787804096889,
+          "theta": 1.1547851814752903
+        },
+        "displacement": 0.31155063190132615,
+        "heading_change": 1.8227881656311484,
+        "completed": true,
+        "stop_sent": true
+      }
+    ],
+    "check": [
+      {
+        "id": "predictions",
+        "label": "Four predictions were written before running",
+        "passed": true,
+        "actual": "4 written, 4 saved",
+        "expected": "4 written and saved"
+      },
+      {
+        "id": "trials",
+        "label": "Four motion trials completed with a stop command",
+        "passed": true,
+        "actual": 4,
+        "expected": "4 of 4"
+      },
+      {
+        "id": "motion",
+        "label": "Each trial produced the expected kind of measurable motion",
+        "passed": true,
+        "actual": 4,
+        "expected": "4 of 4"
+      },
+      {
+        "id": "prediction_order",
+        "label": "Each saved prediction came before its trial",
+        "passed": true,
+        "actual": 4,
+        "expected": "4 of 4"
+      },
+      {
+        "id": "limits",
+        "label": "All commands stayed within the course speed limits",
+        "passed": true,
+        "actual": "within limits",
+        "expected": "within limits"
+      },
+      {
+        "id": "modified_settings",
+        "label": "The recorded modified curve matches the selected sliders",
+        "passed": true,
+        "actual": "matches",
+        "expected": "matches"
+      },
+      {
+        "id": "timing",
+        "label": "Timing and zero-command evidence were recorded",
+        "passed": true,
+        "actual": 4,
+        "expected": "4 of 4"
+      },
+      {
+        "id": "synthesis",
+        "label": "Three evidence-based explanations are complete",
+        "passed": true,
+        "actual": 3,
+        "expected": "3 of 3"
+      }
+    ]
+  }
+}
