@@ -1,0 +1,179 @@
+{
+  "evidence_id": "bd1582772d34be39",
+  "ai_evaluation": {
+    "captured_at": "2026-09-26T03:28:16.358645+00:00",
+    "pattern": "l_path",
+    "source_sha256": "32a1596de21bd8d7913fcf781ee7f6342ed8a9a28c72921fc1e392271ad124b0",
+    "unit_tests_passed": true,
+    "test_count": 10,
+    "unit_test_output": "test_angular_limits (test_pattern.PatternTests.test_angular_limits) ... ok\ntest_linear_limits (test_pattern.PatternTests.test_linear_limits) ... ok\ntest_nonempty (test_pattern.PatternTests.test_nonempty) ... ok\ntest_pattern_contains_motion (test_pattern.PatternTests.test_pattern_contains_motion) ... ok\ntest_pattern_contains_turning (test_pattern.PatternTests.test_pattern_contains_turning) ... ok\ntest_positive_durations (test_pattern.PatternTests.test_positive_durations) ... ok\ntest_segment_types (test_pattern.PatternTests.test_segment_types) ... ok\ntest_command_is_zero_after_total_duration (test_student_pattern.MyPatternTests.test_command_is_zero_after_total_duration) ... ok\ntest_my_pattern_geometry (test_student_pattern.MyPatternTests.test_my_pattern_geometry) ... ok\ntest_my_pattern_order (test_student_pattern.MyPatternTests.test_my_pattern_order) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.000s\n\nOK\n",
+    "implementation_present": true,
+    "student_test_file_present": true,
+    "student_test_count": 3,
+    "commands_bounded": true,
+    "shape_check_passed": true,
+    "model_stop_passed": true,
+    "predicted_endpoint": {
+      "x": 0.4,
+      "y": 0.4,
+      "theta": 1.5707963267948966
+    },
+    "integration_passed": true,
+    "final_stop_verified": true,
+    "source_differs_from_original": true,
+    "live_run": {
+      "captured_at": "2026-09-26T03:28:15.958090+00:00",
+      "pattern": "l_path",
+      "source_sha256": "32a1596de21bd8d7913fcf781ee7f6342ed8a9a28c72921fc1e392271ad124b0",
+      "attempt_id": "93ecc085d7a44890a154709ffca40e7a",
+      "completed": true,
+      "interrupted": false,
+      "error": "",
+      "final_stop_verified": true,
+      "shape_observed": true,
+      "start_pose": {
+        "x": 9.600784797106208e-09,
+        "y": -2.214038766879115e-21,
+        "theta": -4.603992046446857e-13
+      },
+      "end_pose": {
+        "x": 0.3913197906188004,
+        "y": 0.3690686049020803,
+        "theta": 1.5078076794378799
+      },
+      "checkpoints": [
+        {
+          "expected": {
+            "x": 0.4,
+            "y": 0.0,
+            "theta": 0.0
+          },
+          "observed": {
+            "x": 0.36802500000095845,
+            "y": 1.3493733801662822e-12,
+            "theta": -2.789399428225425e-13
+          },
+          "position_error": 0.031974999999041576,
+          "heading_error": 2.789399428225425e-13
+        },
+        {
+          "expected": {
+            "x": 0.4,
+            "y": 0.0,
+            "theta": 1.5707963267948966
+          },
+          "observed": {
+            "x": 0.36804040539646127,
+            "y": -2.2984403405320906e-05,
+            "theta": 1.5078076794380988
+          },
+          "position_error": 0.03195960286839221,
+          "heading_error": 0.06298864735679775
+        },
+        {
+          "expected": {
+            "x": 0.4,
+            "y": 0.4,
+            "theta": 1.5707963267948966
+          },
+          "observed": {
+            "x": 0.39131978101784815,
+            "y": 0.3690686049022703,
+            "theta": 1.5078076794382844
+          },
+          "position_error": 0.03212627280389011,
+          "heading_error": 0.06298864735661214
+        }
+      ]
+    }
+  },
+  "ai_lock": {
+    "locked_at": "2026-09-26T02:41:53.532834+00:00",
+    "pattern": "l_path",
+    "specification_sha256": "304628cd2d29b116ba3c21e79a7c5d136325359aa9a25bcc8f2a77811c8cd207",
+    "prompt_sha256": "e5c6ffcc1cd58dcf79ef94359cafc41d4e4bdebedcde6c5dddd55f1011aec5c7",
+    "output_sha256": "d83defac448d8a6476529fa7dfcf9803669081138d0c332e8bba899ee407cb4f",
+    "source_sha256": "3a99a44b2b304e88e01ba1cc2f76b6ab85a1e2fb5a4ab7707ce8efcf176709ef",
+    "integrity_valid": true
+  },
+  "live_verification_pending": false,
+  "check": [
+    {
+      "id": "original",
+      "label": "Original prompt, response, and source preserved",
+      "passed": true,
+      "actual": "preserved",
+      "expected": "preserved"
+    },
+    {
+      "id": "fresh",
+      "label": "Evaluation matches current source and tests",
+      "passed": true,
+      "actual": "current",
+      "expected": "current"
+    },
+    {
+      "id": "implementation",
+      "label": "pattern.py implementation found",
+      "passed": true,
+      "actual": true,
+      "expected": "true"
+    },
+    {
+      "id": "wrapper",
+      "label": "Course ROS wrapper found",
+      "passed": true,
+      "actual": true,
+      "expected": "true"
+    },
+    {
+      "id": "student_file",
+      "label": "Student test file found at required path",
+      "passed": true,
+      "actual": true,
+      "expected": "true"
+    },
+    {
+      "id": "student_count",
+      "label": "At least two student test methods found",
+      "passed": true,
+      "actual": 3,
+      "expected": ">=2"
+    },
+    {
+      "id": "tests",
+      "label": "Automated tests pass",
+      "passed": true,
+      "actual": 10,
+      "expected": ">=9 passing"
+    },
+    {
+      "id": "pattern",
+      "label": "Assigned geometry and command limits verified",
+      "passed": true,
+      "actual": true,
+      "expected": "true"
+    },
+    {
+      "id": "revision",
+      "label": "Implementation revised from preserved AI code",
+      "passed": true,
+      "actual": true,
+      "expected": "true"
+    },
+    {
+      "id": "live",
+      "label": "Live verification completed or explicitly pending",
+      "passed": true,
+      "actual": "verified",
+      "expected": "verified or documented pending"
+    },
+    {
+      "id": "analysis",
+      "label": "Review, tests, and conclusions explained",
+      "passed": true,
+      "actual": "complete",
+      "expected": "complete"
+    }
+  ]
+}

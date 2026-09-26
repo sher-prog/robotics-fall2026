@@ -1,0 +1,9 @@
+This node subscribes to `hallway_camera/detected_point` (a `geometry_msgs/PointStamped` with `header.frame_id` set to the camera's TF frame), uses a `tf2_ros.Buffer`/`TransformListener` to look up the transform to `base_link`, and republishes the result on `detected_point_base_link`.
+
+Key points:
+- `tf_buffer.transform(msg, 'base_link', timeout=...)` does the lookup *and* the math in one call — it uses `msg.header.stamp`, so it needs the camera→base_link transform to actually exist in the TF tree at that timestamp (published by `robot_state_publisher`, a `static_transform_publisher` for a fixed camera, or similar).
+- `import tf2_geometry_msgs` is required even though it's unused directly — it registers `PointStamped` support with `Buffer.transform()`.
+- Catches the three standard tf2 exceptions (`LookupException`, `ConnectivityException`, `ExtrapolationException`) so a missing/late transform just logs a warning instead of crashing the node.
+- `target_frame` and `tf_timeout_sec` are exposed as ROS params if you need to point it at a different frame or tune how long it waits.
+
+Swap the topic names for whatever your camera driver and consumer actually use.

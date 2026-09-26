@@ -1,0 +1,18 @@
+Here's an implementation of build_pattern for the l_path assignment.
+
+Assumptions:
+- The robot starts at rest at the origin, facing 0 rad (+x direction), so no initial alignment is needed.
+- Positive angular_z turns the robot left, matching the ROS convention you described.
+- Each returned segment runs for its full duration before the next one starts, so the robot naturally comes to rest between segments as one command replaces the next.
+- Duration is computed as distance / speed for straight segments and angle / speed for the turn, using the exact speeds from your specification.
+- No segment exceeds the 0.22 m/s / 0.80 rad/s limits or the 30 s per-segment / 60 s total limits.
+
+Suggested tests:
+1. build_pattern("l_path") returns exactly 3 segments.
+2. The first and third segments have linear_x = 0.15 and angular_z = 0.0.
+3. The second segment has angular_z = 0.5 and linear_x = 0.0.
+4. Total distance of the two straight segments is 0.40 m each (linear_x * duration).
+5. The turn segment covers pi/2 radians (angular_z * duration).
+6. build_pattern("unknown") raises ValueError.
+
+Here is the complete file:
