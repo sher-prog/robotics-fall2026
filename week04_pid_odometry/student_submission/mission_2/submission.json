@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-02T14:03:51",
+  "mission_id": "mission_2",
+  "student": {
+    "name": "Shernice Chetty",
+    "student_id": "24063171",
+    "section": "CSCI 39536 01 [5485]"
+  },
+  "explanations": {
+    "prediction": "The estimate forward distance will overestimate the actual distance the robot travelled, while the estimate sideways distance will underestimate the actual distance travelled",
+    "calibration_analysis": "I predicted that incorrect scales would cause the system to over- or under-estimate the distance traveled, which the test confirmed. Changing the forward pod scale fixed the forward and backward distance tracking, while changing the strafe pod scale fixed the side-to-side distance tracking. The sideways pod is necessary because this holonomic robot can slide left and right without turning; a forward pod alone cannot measure this sideways movement. Even after perfect calibration, some drift remains because of real-world physical factors like wheel slip, floor bumps, or slight sensor friction that slowly add up over time."
+  },
+  "params": {
+    "forwardInPerTick": 0.0498,
+    "strafeInPerTick": 0.0498
+  },
+  "metrics": {
+    "max_error_in": 0.35000379655081654,
+    "final_error_in": 0.25725895436309976,
+    "passed": true
+  },
+  "result": {
+    "passed": true,
+    "maxError": 0.35000379655081654,
+    "finalError": 0.25725895436309976,
+    "params": {
+      "forwardInPerTick": 0.0498,
+      "strafeInPerTick": 0.0498
+    }
+  },
+  "csv_files": {},
+  "activity_gifs": [
+    "latest_odometry_test.gif"
+  ]
+}

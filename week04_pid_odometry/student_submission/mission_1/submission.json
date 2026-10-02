@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-01T11:16:12",
+  "mission_id": "mission_1",
+  "student": {
+    "name": "Shernice Chetty",
+    "student_id": "SHERNICE.CHETTY71@stu-mail.hunter.cuny.edu",
+    "section": "CSCI - 39536 01 [5485]"
+  },
+  "explanations": {
+    "prediction": "With too little Kp, the arm will move sluggishly and fail to reach or hols the target pose; with too little Kd, the arm will swing past the target, oscillate and overshoot back and forth before finally settling.",
+    "tuning_analysis": "I predicted that low Kp would cause sluggish movement and low Kd would cause overshooting and oscillation. I adjusted both the shoulder and the elbow gains to increase responsiveness without excessive ringing. The hold phase showed the arm staying firmly on the target without drifting. Turning on gravity compensation counteracted the downward pull on the second link, keeping the shoulder stable"
+  },
+  "params": {
+    "activity": "two_link_arm_pid_tuning",
+    "kp1": 6,
+    "ki1": 0.9,
+    "kd1": 1.3,
+    "kp2": 6,
+    "ki2": 0.9,
+    "kd2": 1.2,
+    "gravityCompensation": true
+  },
+  "metrics": {
+    "completed": true,
+    "posesHeld": 3,
+    "posesRequired": 3
+  },
+  "checkin": {
+    "note": "I predicted that low Kp would cause sluggish movement and low Kd would cause overshooting and oscillation. I adjusted both the shoulder and the elbow gains to increase responsiveness without excessive ringing. The hold phase showed the arm staying firmly on the target without drifting. Turning on gravity compensation counteracted the downward pull on the second link, keeping the shoulder stable",
+    "choice": "",
+    "complete": true
+  },
+  "csv_files": {},
+  "activity_gifs": [
+    "latest_arm_tuning.gif"
+  ]
+}
