@@ -2,26 +2,14 @@
 
 - Name: Shernice Chetty
 - Student ID: 24063171
-- Section: 39536 01 [5485]
+- Section: 01 [5485]
 
 ## Check-in answers
 
-### m3_prediction
+### final_reflection
 
-Increasing speed may cause the robot to overshoot the path and increase tracking error because it has less time to react and steer. Too little derivative control may cause the robot to wobble back and forth across the path instead of driving smoothly. Therefore clearance around pedestrians will decrease, increasing the risk that the robot will crash into them.
-
-### m3_technical
-
-I predicted that too much speed or too little derivative control would cause the robot to wobble and overshoot the path, which was correct until the speed was lowered and the gains were tuned. The robot computes its desired heading by calculating the angle from its current estimated position to the next point on the cyan route. The PID controller then looks at the error which is the difference between this desired heading and where the robot is actually pointing and adjusts the left and right wheel speeds to steer the robot correctly. The green and orange paths showed that if the wheel radius is inaccurate, the robot miscalculates how far its wheels have actually moved.
-
-### m3_human
-
-The most consequential failure is the robot crashing into a pedestrian and causing physical injury or tripping them. I would require a trade-off of lowering the robot's speed while maintaining a larger safety clearance zone, because a slower robot has more time to stop or steer away if someone steps into its path. Responsibility belongs to the engineers and development team, because they are the ones writing the code, tuning the controls, and making the final decisions on how the robot operates in the real world.
+The lab made me realize how hard it is to translate perfect code into actual physical movement. While I was learning how to tune the PID controllers and calibrating the odometry, I realized that even if the logic is flawless, real-world physical factors  can throw the robot off track. It was a bit frustrating at first, but figuring out how to tweak the math to fix the physical drift was really rewarding. It definitely sparked my interest in robotics. What stood out the most to me, though, was how these tiny technical settings directly impact human safety. Seeing how a slightly higher speed or a bad wheel calibration could cause the robot to stray off its path and potentially hit a pedestrian. It reinforced for me that engineering isn't just about making things run efficiently, it carries a huge ethical responsibility. We have to design for public safety first in mind. Overall, dealing with the messy reality of physical hardware was challenging, but it makes me really excited to keep learning and eventually build systems that are both smart and safe.
 
 ## Mission explanations
 
-### mission_3
-
-**technical_analysis**: I predicted that too much speed or too little derivative control would cause the robot to wobble and overshoot the path, which was correct until the speed was lowered and the gains were tuned. The robot computes its desired heading by calculating the angle from its current estimated position to the next point on the cyan route. The PID controller then looks at the error which is the difference between this desired heading and where the robot is actually pointing and adjusts the left and right wheel speeds to steer the robot correctly. The green and orange paths showed that if the wheel radius is inaccurate, the robot miscalculates how far its wheels have actually moved.
-
-**human_centered_analysis**: The most consequential failure is the robot crashing into a pedestrian and causing physical injury or tripping them. I would require a trade-off of lowering the robot's speed while maintaining a larger safety clearance zone, because a slower robot has more time to stop or steer away if someone steps into its path. Responsibility belongs to the engineers and development team, because they are the ones writing the code, tuning the controls, and making the final decisions on how the robot operates in the real world.
+_(none yet)_
