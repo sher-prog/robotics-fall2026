@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-24T01:57:38.406721+00:00",
+  "strategy": "perimeter_then_interior",
+  "duration_minutes": 7.0,
+  "map_yaml": "map.yaml",
+  "map_image": "map.pgm",
+  "metrics": {
+    "width": 142,
+    "height": 194,
+    "resolution": 0.05,
+    "map_area_m2": 68.87,
+    "known_fraction": 0.43574851168868883,
+    "unknown_fraction": 0.5642514883113111,
+    "occupied_fraction": 0.039131697400900244,
+    "free_fraction": 0.3966168142877886,
+    "occupied_components": 67,
+    "largest_component_cells": 633,
+    "speckle_fraction": 0.05009276437847866,
+    "border_contact_fraction": 0.008982035928143712
+  },
+  "quality_score": 75.7
+}
