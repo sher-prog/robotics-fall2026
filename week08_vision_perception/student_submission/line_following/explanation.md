@@ -1,0 +1,7 @@
+# line_following
+
+## comparison
+I compared attempt 20261030T234121-8bcd0c52 (gain 0.08) with 20261031T000007-3b1649fd (gain 1.0). Both completed the track with no line loss, and only the gain changed. With gain 0.08 the line stayed far from center on the bends (error about +0.8 to -0.9, mean 0.49). The turn rate stayed under 0.07 rad/s, which was too weak to correct, and the forward speed kept dropping to 0.06–0.10 m/s. With gain 1.0 the error stayed within about ±0.15 (mean 0.06). The robot kept near full speed and finished faster once it started moving, about 125 s of driving against 187 s. There were only small ripples on the bends and no sustained oscillation. The error plot and turn-rate plot support the effect of the gain.
+
+## limits
+In my practice run (20261030T232935-36221c74) the robot stopped at about 68 s with LINE_LOST. The strip had ended, and the mask in the last image was empty, so the missing line was information the controller couldn't get, not an image-processing or control error. The controller stopped as it should, but it can't know why the line is gone. In attempt 2 the first 34 s were WAIT_CAMERA because of missing frames. A real delivery robot around people would also need depth or lidar to detect obstacles and people, which a line mask can't give. It would need tests with moving people, glare, dirty or worn lines, and sensor dropouts, plus a safe stop for any of these.
