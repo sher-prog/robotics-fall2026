@@ -1,0 +1,14 @@
+{
+  "run_id": "constrained_bfs_0_baseline_c38bfa5159",
+  "map": "constrained",
+  "planner": "bfs",
+  "sample": 720,
+  "point": {
+    "t": 74.3,
+    "x": 3.7799082253235596,
+    "y": -2.457035737681991,
+    "speed_mps": 0.1642809378763488
+  },
+  "tracking_error_m": 0.09509177467644037,
+  "feature": "Turn"
+}
