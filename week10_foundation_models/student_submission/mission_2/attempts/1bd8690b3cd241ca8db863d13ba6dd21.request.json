@@ -1,0 +1,14 @@
+{
+  "job_id": "1bd8690b3cd241ca8db863d13ba6dd21",
+  "kind": "vision",
+  "case": "custom",
+  "prompt": "Task: Locate.\n Goal: Locate the black vertical post relative to the foreground tool.\nRequest: Please describe the location of the black vertical metal post relative to the tool in the foreground of the image. Provide a purely image-based spatial description (like left, right, above, or behind) without inventing physical distances or world coordinates. Please separate visible evidence from assumptions.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T21:30:28.699715+00:00",
+  "comparison_ids": [
+    "b0afb4c413504c4f81215c2f0bcf601e",
+    "0ae1131571da4d28a584d61a9fd8a342",
+    "18284a210f464b3e9c41fae826b2f572"
+  ]
+}

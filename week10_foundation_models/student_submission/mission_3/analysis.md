@@ -1,0 +1,1 @@
+Compared to Prompt 1, my prompt had the exact same result (35 moves, 15 blocked moves, no goal visit). It did not help. The limitation is that the model still gets stuck in a loop and struggles to follow complex conditional rules based on coordinates.

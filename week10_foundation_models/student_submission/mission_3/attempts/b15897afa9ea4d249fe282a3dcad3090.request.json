@@ -1,0 +1,29 @@
+{
+  "job_id": "b15897afa9ea4d249fe282a3dcad3090",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Reach the goal at (11,1). Use this logic based on your current position: If your column is less than 7, your priority is to move UP to row 1, then RIGHT. If your column is between 7 and 10, your priority is to move DOWN to row 7, then RIGHT. If your column is 11, move UP to row 1. Never choose a direction marked as \"wall\". Choose STOP only when you reach (11,1).",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T21:37:17.364484+00:00",
+  "comparison_ids": [
+    "948e272f942d44f1a49c6f6723158469",
+    "81a880dec6cc479b8977ed3ffbefd507",
+    "7f4c83847ee6485182d09c30792c242a"
+  ],
+  "task": "robot",
+  "robot_state": {
+    "position": [
+      1,
+      7
+    ],
+    "step": 0,
+    "history": [],
+    "finished": false,
+    "goal_reached": false,
+    "first_goal_step": null,
+    "last_feedback": "No previous action.",
+    "last_decision": null
+  },
+  "simulator_contract": "8da30a943bd97ee39237aa05e8e6800fecdecbef3ce692d7d4e48f851679060f"
+}

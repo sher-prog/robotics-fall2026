@@ -1,0 +1,14 @@
+{
+  "job_id": "17257f95a59049beba5b1bee9b595ee6",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Navigate to the desk, inspect the book with your camera, and report your observations.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T21:26:36.330310+00:00",
+  "comparison_ids": [
+    "472c014bf1ab4de2903651b870a2df20",
+    "bff4800214f64bb0848dbc96451e5705",
+    "47728f442f534642b0c3e4623d1f85f2"
+  ]
+}

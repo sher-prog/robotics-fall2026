@@ -1,0 +1,71 @@
+{
+  "stage": "final_submission",
+  "responses": {
+    "m1_analysis": "Yes. The model correctly moved to the desk and used its camera instead of trying to carry the object, perfectly matching the robot's actual capabilities.",
+    "m2_analysis": "I chose the Locate task. No, the revised request produced a worse answer. The original answer correctly used the visible evidence to say the post is to the right of the tool, but the new answer just repeated Black vertical metal post without actually describing its location.",
+    "m3_analysis": "Compared to Prompt 1, my prompt had the exact same result (35 moves, 15 blocked moves, no goal visit). It did not help. The limitation is that the model still gets stuck in a loop and struggles to follow complex conditional rules based on coordinates.",
+    "final_synthesis": "Throughout the three missions in this lab, I learned that translating an AI model's text-based responses into useful, physical robot behavior requires highly constrained, specific prompts rather than open-ended commands. Left to their own devices, large language models will often hallucinate capabilities the robot does not physically possess.\nIn Mission 1, refining my request to explicitly match the robot's actual action capabilities (moving its wheels and using its camera) prevented it from attempting impossible tasks like picking up or carrying objects. In Mission 2, I saw how crucial visible evidence and action checks are. By instructing the model to separate what it could visibly confirm in the image from what it assumed, I stopped it from inventing fake physical distances and world coordinates that could cause a robot to crash or malfunction in the real world.\nHowever, Mission 3 highlighted a significant remaining limitation where current language models lack true spatial reasoning and working memory for physical navigation. Even when provided with strict, step-by-step conditional logic based on grid coordinates, the robot became trapped in an endless loop of moving up and down. It could not dynamically understand the maze's wall layout or remember its past failed moves to correct its path. This demonstrates that while models are excellent at generating plausible text plans, they cannot safely govern real-time physical navigation without external, specialized spatial systems and strict guardrails guiding them.",
+    "final.course_reflection": "Going through this lab was honestly a huge reality check. I use AI for coding, bug checks and to explain concepts to me all the time, I usually think of these models as incredibly capable. But seeing how easily the model confidently hallucinated robot movements, like trying to pick up a cup it physically couldn\u2019t, made me more aware of how completely different software intelligence is from physical robotics.\nIn Mission 3, the robot just kept looping up and down in a simple grid. It was frustrating but also eye-opening to watch. It showed me that just because a model can write complex text doesn't mean it has basic spatial awareness or common sense.  It\u2019s easy to get caught up in the hype of foundation models, but this activity highlighted the massive safety risks of deploying them in the real world without strict guardrails and action checks. If an AI hallucinates in a chat box, you get a weird answer; if it hallucinates while driving a physical robot, it could break something or hurt someone. It really motivated me to focus on the intersection of AI development and safety, ensuring we build systems that actually understand their physical constraints before we trust them.\n"
+  },
+  "student": {
+    "name": "Shernice Chetty",
+    "email": "SHERNICE.CHETTY71@stu-mail.hunter.cuny.edu"
+  },
+  "tutorial_step": 5,
+  "tutorial_reviewed": 6,
+  "controls": {
+    "control_ground_instruction": "Point to the cup",
+    "control_demo_step": 3,
+    "control_adapt_scenario": "Grasps fail from a new camera angle",
+    "control_adapt_choice": "Full fine-tuning",
+    "control_adapt_instruction": "Move the blue cup to the tray",
+    "control_adapt_records": 2,
+    "control_chunk_size": 8,
+    "control_movement_angle": 0,
+    "control_chunk_hz": 20,
+    "control_movement_token": 64,
+    "control_validate_case": "Navigate to the shelf",
+    "control_validate_age_navigate": 2.0,
+    "control_validate_conf_navigate": 0.9,
+    "control_live_language_active": "17257f95a59049beba5b1bee9b595ee6",
+    "control_live_language_runs": [
+      "472c014bf1ab4de2903651b870a2df20",
+      "bff4800214f64bb0848dbc96451e5705",
+      "47728f442f534642b0c3e4623d1f85f2",
+      "17257f95a59049beba5b1bee9b595ee6"
+    ],
+    "control_live_language_custom_prompt": "Navigate to the desk, inspect the book with your camera, and report your observations.",
+    "control_live_vision_runs": [
+      "b0afb4c413504c4f81215c2f0bcf601e",
+      "0ae1131571da4d28a584d61a9fd8a342",
+      "18284a210f464b3e9c41fae826b2f572",
+      "1bd8690b3cd241ca8db863d13ba6dd21"
+    ],
+    "control_live_vision_active": "1bd8690b3cd241ca8db863d13ba6dd21",
+    "control_live_vision_custom_prompt": "Task: Locate.\n Goal: Locate the black vertical post relative to the foreground tool.\nRequest: Please describe the location of the black vertical metal post relative to the tool in the foreground of the image. Provide a purely image-based spatial description (like left, right, above, or behind) without inventing physical distances or world coordinates. Please separate visible evidence from assumptions.",
+    "control_robot_runs": [
+      "948e272f942d44f1a49c6f6723158469",
+      "81a880dec6cc479b8977ed3ffbefd507",
+      "7f4c83847ee6485182d09c30792c242a",
+      "b15897afa9ea4d249fe282a3dcad3090"
+    ],
+    "control_robot_active": "b15897afa9ea4d249fe282a3dcad3090",
+    "control_robot_custom_prompt": "Reach the goal at (11,1). Use this logic based on your current position: If your column is less than 7, your priority is to move UP to row 1, then RIGHT. If your column is between 7 and 10, your priority is to move DOWN to row 7, then RIGHT. If your column is 11, move UP to row 1. Never choose a direction marked as \"wall\". Choose STOP only when you reach (11,1)."
+  },
+  "guided_version": 4,
+  "guided_seen": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "response_widgets": [
+    "m1_analysis",
+    "m2_analysis",
+    "m3_analysis",
+    "final_synthesis"
+  ],
+  "version": 2
+}

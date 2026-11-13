@@ -1,0 +1,1 @@
+Yes. The model correctly moved to the desk and used its camera instead of trying to carry the object, perfectly matching the robot's actual capabilities.
